@@ -4,7 +4,7 @@ import { success, failure } from './libs/response-lib'
 // eslint-disable-next-line
 export async function main(event) {
   const params = {
-    TableName: 'notes',
+    TableName: process.env.tableName,
     // 'KeyConditionExpression' defines the condition for the query
     // - 'userId = :userId': only return items with matching 'userId'
     //   partition key

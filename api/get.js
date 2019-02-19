@@ -4,10 +4,7 @@ import { success, failure } from './libs/response-lib'
 // eslint-disable-next-line
 export async function main(event, context) {
   const params = {
-    TableName: 'notes',
-    // 'Key' defines the partition key and sort key of the item to be retrieved
-    // - 'userId': Identity Pool identity id of the authenticated user
-    // - 'noteId': path parameter
+    TableName: process.env.tableName,
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
       noteId: event.pathParameters.id,

@@ -4,7 +4,7 @@ import { success, failure } from './libs/response-lib'
 // eslint-disable-next-line
 export async function main(event) {
   const params = {
-    TableName: 'notes',
+    TableName: process.env.tableName,
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
       noteId: event.pathParameters.id,
